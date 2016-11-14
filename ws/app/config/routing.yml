@@ -1,0 +1,14 @@
+w_sapp:
+    resource: "@WSappBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+
+w_sapi:
+    resource: "@WSapiBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+
+
+
