@@ -1,0 +1,4 @@
+services:
+#    w_sapp.example:
+#        class: WS\apiBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

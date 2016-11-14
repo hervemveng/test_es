@@ -1,0 +1,7 @@
+api_user:
+    path:     /
+    defaults: { _controller: WSapiBundle:Api:index }
+
+api_add:
+    path:     /add
+    defaults: { _controller: WSapiBundle:Api:add }

@@ -1,0 +1,3 @@
+w_sapp_homepage:
+    path:     /
+    defaults: { _controller: WSappBundle:Default:index }
