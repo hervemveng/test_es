@@ -27,7 +27,8 @@ class DefaultController extends Controller
             $actuality = $request->get('actuality');
             $offer = $request->get('offer');
 
-            $app = new MyApp();
+            $url = 'http://127.0.0.1/eS_test/ws/web/app_dev.php';
+            $app = new MyApp($url);
             $data = array(
                 'gender' => $gender,
                 'name' => $name,
