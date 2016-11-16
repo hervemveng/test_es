@@ -23,18 +23,9 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            pattern:   ^/app
-            anonymous: true # On autorise alors les anonymes sur ce pare-feu
- #       main:
- #           pattern:   ^/
- #           anonymous: false
- #           provider:  main
- #           form_login:
- #               login_path: fos_user_security_login
- #               check_path: fos_user_security_check
- #           logout:
- #               path:   fos_user_security_logout
- #               target: /login
+            pattern:   ^/
+            anonymous: true # full access
+
 
             # activate different ways to authenticate
 

@@ -1,0 +1,51 @@
+{# app/Resources/views/theme_app.html.twig #}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <title>Nexity</title>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width,initial-scale=1">
+       <meta name="author" content="Damien Doussaud, Namide">
+       <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}" type="text/css" />
+       <link rel="stylesheet" href="{{ asset('bundles/app/css/my-style.css') }}" type="text/css" />
+       <link rel="Shortcut Icon" type="image/x-icon" href="{{ asset('bundles/app/img/favicon.png') }}">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+       {% block linkJSOnline %}
+       {% endblock %}
+       <script src="{{ asset("bundles/app/js/script.js") }}"></script>
+   </head>
+   <body class="form flex-container-v">
+
+    <header class="main">
+        <h1>
+            <a href="#">
+                <img src="{{ asset("bundles/app/img/logo-nexity.png") }}" alt="Logo Nexity">
+                <span></span>Une belle vie immobili&egrave;re</a>
+        </h1>
+    </header>
+
+    <div id="container" class="flex-container">
+        <div id="cover">
+            <div class="pin">
+                <img src="{{ asset("bundles/app/img/pin-large-text.png") }}" alt="Les clefs de votre financement se trouvent ici">
+            </div>
+            <div class="text txtcenter">
+                <em>
+                    Remplissez notre formulaire en ligne pour b&eacute;n&eacute;ficier de l&prime;offre
+                </em>
+                <strong>
+                    D&eacute;couvrez  les programmes correspondant &agrave; votre projet d&prime; achat dans le neuf
+                </strong>
+            </div>
+        </div>
+        {% block form_record %}
+        {% endblock %}
+    </div>
+    {% block javascript %}
+    {% endblock %}
+   </body>
+</html>
+
+
+
