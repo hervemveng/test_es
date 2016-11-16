@@ -8,7 +8,7 @@
 
 
 {% block form_record %}
-    <form action="{{ path("w_sapp") }}" method="post" novalidate="novalidate" >
+    <form action="" method="post" novalidate="novalidate" >
         <div class="grid-1-3">
             <span class="txtright">Civilit&eacute;*</span>
             <div class="grid-3 radio">
@@ -31,6 +31,8 @@
         <div class="grid-1-3">
             <label class="txtright">Code postal*</label>
             {{ form_widget(form.postalcode) }}
+            <div id="container">
+            </div>
         </div>
         <div class="grid-1-3">
             <label class="txtright">Email*</label>
@@ -92,9 +94,12 @@
                  "20000"
              ];
 
-             $( "#user_postalcode" ).autocomplete({
-                 source: availableCodePostal
-             });
+             var options = {
+                 source: availableCodePostal,
+                 appendTo: "#container"
+             }
+             $( "#user_postalcode" ).autocomplete(options);
+
          } );
 
         $(function(){
@@ -129,31 +134,37 @@
                         checkfieldsEmpty(name,fname,codepostal,mail,phone);
                     }
                     else{
-                        $.ajax({
-                            type: 'POST',
-                            url: '{{ path('w_sapp') }}',
-                            data: { 'gender' : gender, 'name' : name, 'firstName': fname , 'postalCode': codepostal, 'mail': mail, 'phone' : phone, 'actuality':actuality,'offer':offer},
-                            dataType: 'json',
-                            success: function(response) {
-                                result = JSON.stringify(response.ack);
-                                state = JSON.stringify(response.state);
-                                result = result.replace('"', '').replace('"', '');
-                                state = state.replace('"', '').replace('"', '');
-                                display = "<span class='"+state+"'>"+result+"</span>";
-                                $("#ack-record").html(display);
-                                if(state == 'up'){
-                                    $("#user_name").val('');
-                                    $("#user_firstname").val('');
-                                    $("#user_postalcode").val('');
-                                    $("#user_mail").val('');
-                                    $("#user_phone").val('');
-                                    $( 'input[id*="user_gender_"]').prop('checked', false);
-                                    $( 'input[id*="user_actuality_"]').prop('checked', false);
-                                    $( 'input[id*="user_offer_"]').prop('checked', false);
+                        if(!isValidEmail(mail)){
+                            putError($("#user_mail"),"<span class='red'>Veuillez saisir une adresse email valide</span>");
+                        }
+                        else{
+                            $.ajax({
+                                type: 'POST',
+                                url: '{{ path('w_sapp') }}',
+                                data: { 'gender' : gender, 'name' : name, 'firstName': fname , 'postalCode': codepostal, 'mail': mail, 'phone' : phone, 'actuality':actuality,'offer':offer},
+                                dataType: 'json',
+                                success: function(response) {
+                                    result = JSON.stringify(response.ack);
+                                    state = JSON.stringify(response.state);
+                                    result = result.replace('"', '').replace('"', '');
+                                    state = state.replace('"', '').replace('"', '');
+                                    display = "<span class='"+state+"'>"+result+"</span>";
+                                    $("#ack-record").html(display);
+                                    if(state == 'up'){
+                                        $(".txtright").removeClass("error");
+                                        $("#user_name").val('');
+                                        $("#user_firstname").val('');
+                                        $("#user_postalcode").val('');
+                                        $("#user_mail").val('');
+                                        $("#user_phone").val('');
+                                        $( 'input[id*="user_gender_"]').prop('checked', false);
+                                        $( 'input[id*="user_actuality_"]').prop('checked', false);
+                                        $( 'input[id*="user_offer_"]').prop('checked', false);
+                                    }
+                                    console.log(response);
                                 }
-                                console.log(response);
-                            }
-                        });
+                            });
+                        }
                     }
 
                 }
@@ -187,6 +198,12 @@
              }
              $("#ack-record").html(msg);
          }
+
+         function isValidEmail(emailAddress) {
+             var right = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+             return right.test(emailAddress);
+         };
+
 
 
 
