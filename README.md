@@ -20,6 +20,9 @@
     * installer la structure de la base de données : php bin/console doctrine:schema:update et ensuite php bin/console doctrine:schema:update --force
     * ouvrez l'application selon l'url suivante : http://votre_adresse/chemin_vers_application/web/app_dev.php ou http://votre_adresse/chemin_vers_application/web/
 
+ - Utilisation de l'api lors de l'enregistrement
+    * ne pas oublier de réferencier l'url de l'api distante dans la création de l'app
+
 #****************************************#
 #*        Installation newsletter       *#
 #****************************************#
