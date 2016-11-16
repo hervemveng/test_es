@@ -7,10 +7,20 @@ namespace WS\appBundle\Entity;
 class MyApp
 {
 
-    protected $url = 'http://127.0.0.1/eS_test/ws/web/app_dev.php';
+    protected $url;
+
+    public function __construct($url = null){
+        $this->url = $url;
+    }
 
     public function sendPOST($route, $parameters)
     {
+        if($this->url == null){
+            return json_decode(array(
+                'state' => 'down',
+                'ack' => 'Url api absente.'
+            ), true);
+        }
         if (empty($route)) {
             return false;
         }
