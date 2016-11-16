@@ -14,35 +14,9 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
-        //$result = null;
         $user = new User();
         $form = $this->get('form.factory')->create(UserType::class, $user);
 
-        /*
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-
-            //return new JsonResponse($user->toArray(), 201);
-
-            $app = new MyApp();
-            $data = array(
-                'gender' => $user->getGender(),
-                'name' => $user->getName(),
-                'firstName' => $user->getFirstname(),
-                'postalCode' => $user->getPostalcode(),
-                'mail' => $user->getMail(),
-                'phone' => $user->getPhone(),
-                'actuality' => $user->getActuality(),
-                'offer' => $user->getOffer(),
-            );
-
-            $result = $app->sendPOST('/add', $data);
-
-            return new JsonResponse($result, 201);
-
-        }
-        */
         if ($request->isXMLHttpRequest()) {
             $gender = $request->get('gender');
             $name = $request->get('name');
@@ -66,12 +40,12 @@ class DefaultController extends Controller
             );
 
             $result = $app->sendPOST('/add', $data);
+            //var_dump($result);
 
             return new JsonResponse($result, 201);
 
         }
 
-        //var_dump($result);
         return $this->render('WSappBundle:Default:index.html.twig', array(
             'form' => $form->createView(),
         ));
