@@ -10,15 +10,15 @@ namespace WS\apiBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function countByNameLastName($name,$lastname)
+    public function countByNameLastName($name,$fname)
     {
         $qb = $this
             ->createQueryBuilder('u')
             ->select('COUNT(u)')
             ->where('u.name LIKE :name')
-            ->andWhere('u.lastName LIKE :lname')
+            ->andWhere('u.firstname LIKE :fname')
             ->setParameter('name','%'.$name.'%')
-            ->setParameter('lname','%'.$lastname.'%')
+            ->setParameter('fname','%'.$fname.'%')
         ;
 
         $result = $qb->getQuery()->getSingleScalarResult();

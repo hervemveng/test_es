@@ -1,3 +1,9 @@
-w_sapp_homepage:
+w_sapp:
     path:     /
     defaults: { _controller: WSappBundle:Default:index }
+    requirements:
+            methods: POST
+
+
+
+

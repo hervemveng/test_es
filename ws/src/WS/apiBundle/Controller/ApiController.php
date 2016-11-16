@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use WS\appBundle\Entity\User;
+use WS\apiBundle\Entity\User;
 
 class ApiController extends Controller
 {
@@ -27,27 +27,48 @@ class ApiController extends Controller
     {
         $em = $this->get('doctrine.orm.entity_manager');
 
-        $name = $request->request->get('name');
-        $last_name = $request->request->get('last_name');
+        $gender = $request->query->get('gender');
+        $name = $request->query->get('name');
+        $firstname = $request->query->get('firstName');
+        $postalcode = $request->query->get('postalCode');
+        $mail = $request->query->get('mail');
+        $phone = $request->query->get('phone');
+        $actuality = $request->query->get('actuality');
+        $offer = $request->query->get('offer');
 
-        // auccune valeur nulle
-        if ($name === null || $last_name === null) {
-            return new JsonResponse(array('error' => 'les parametres noms et prenoms doivent etre renseignes '), 422);
+        // auccune valeur nulle malgré les required du form
+        if ($name === null || $firstname === null) {
+            return new JsonResponse(array(
+                'state' => 'down',
+                'ack' => 'les parametres noms et prenoms doivent etre renseignes '
+            ), 422);
         }
 
         //aucun doublon
-        $nbre =$em->getRepository('WSapiBundle:User')->countByNameLastName($name,$last_name);
+        $nbre =$em->getRepository('WSapiBundle:User')->countByNameLastName($name,$firstname);
         if ($nbre != 0) {
-            return new JsonResponse(array('error' => 'Oops "'.$name.' '.$last_name.'" existe deja'), 422);
+            return new JsonResponse(array(
+                'state' => 'down',
+                'ack' => 'Oops '.$name.' '.$firstname.' &agrave; d&eacute;j&agrave; &eacute;t&eacute; enregistr&eacute;'
+            ), 422);
         }
 
         $user = new User();
+        $user->setGender($gender);
         $user->setName($name);
-        $user->setLastName($last_name);
+        $user->setFirstname($firstname);
+        $user->setPostalcode($postalcode);
+        $user->setMail($mail);
+        $user->setPhone($phone);
+        $user->setActuality($actuality);
+        $user->setOffer($offer);
 
         $em->persist($user);
         $em->flush();
 
-        return new JsonResponse($user->toArray(), 201);
+        return new JsonResponse(array(
+            'state' => 'up',
+            'ack' => $user->toArray().', vous aviez &eacute;t&eacute; enregistr&eacute;.'
+        ), 201);
     }
 }

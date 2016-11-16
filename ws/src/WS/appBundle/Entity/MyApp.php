@@ -9,7 +9,7 @@ class MyApp
 
     protected $url = 'http://127.0.0.1/eS_test/ws/web/app_dev.php';
 
-    public function callApi($route, $parameters)
+    public function sendPOST($route, $parameters)
     {
         if (empty($route)) {
             return false;
@@ -20,7 +20,6 @@ class MyApp
             $url .= '?'.http_build_query($parameters);
 
         }
-
 
         // initialisation de la session
         $ch = curl_init();
