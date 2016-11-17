@@ -12,8 +12,140 @@
         body{
             margin: 0;
         }
-        @media only screen and (max-width: 479px) {
-            table{width:100%!important;}
+        @media only screen and (max-width: 480px) {
+            table{
+                width:100%!important;
+            }
+            .centre-visuel,
+            .texte-accroche,
+            .paragraphe-1, .paragraphe-2, .paragraphe-2,
+            .texte-accroche,
+            .sur-footer,
+            .footer{
+                width:100%!important;
+            }
+
+            table.header-offre td{
+                font-size:14px!important;
+            }
+            table.header-offre .deb td, table.header-offre .end td{
+                height:20px;
+            }
+            table.centre-visuel .top-resp{
+              width: 100%!important;
+                display: block;
+            }
+            table.centre-visuel .top-resp img{
+                width:100%!important;
+                height:350px!important;
+            }
+            table.centre-visuel .bottom-resp{
+                width: 100%!important;
+                display: block;
+                text-align: center;
+                height:250px;
+            }
+            table.centre-visuel .bottom-resp img{
+                width: 60%;
+                height: 70%;
+                position: relative;
+                margin-top:30px;
+            }
+            .texte-accroche{
+                background-color:#f5f5f5!important;
+            }
+            .texte-accroche .left,
+            .texte-accroche .right{width:10px!important;}
+            .texte-accroche .middle{
+                width:100px!important;
+            }
+            .texte-accroche .middle img{width:100%!important;}
+            .texte-accroche .end td {height:20px!important;}
+
+            table .hide{display:none;}
+            .paragraphe-1, .paragraphe-2, .paragraphe-3{background: #eaeaea!important;}
+
+            .paragraphe-1 .deb, .paragraphe-3 .deb{
+                height:30px!important;
+            }
+            .paragraphe-1 .top-resp, .paragraphe-3 .top-resp{
+                width: 100%!important;
+                display: block;
+                text-align: left!important;
+            }
+            .paragraphe-1 .top-resp img, .paragraphe-3 .top-resp img{
+                width:90%!important;
+            }
+            .paragraphe-1 .bottom-resp, .paragraphe-3 .bottom-resp{
+                width: 100%!important;
+                display: block;
+                text-align: center;
+                height:250px;
+            }
+            .paragraphe-1 .bottom-resp table, .paragraphe-3 .bottom-resp table{
+                text-align:left!important;
+                background: #eaeaea!important;
+            }
+            .paragraphe-1 .end td{
+                height:0px;!important;
+            }
+
+            .paragraphe-2 .top-resp .deb-tab td{
+                height:0px!important;
+            }
+            .paragraphe-2 .top-resp{
+                width: 100%!important;
+                display: block;
+            }
+            .paragraphe-2 .bottom-resp table{
+                text-align:left!important;
+                background: #eaeaea!important;
+            }
+            .paragraphe-2 .bottom-resp{
+                width: 100%!important;
+                display: block;
+                height:300px!important;
+            }
+            .paragraphe-2 .bottom-resp img{
+                width:95%!important;
+                margin-top:25px;
+
+            }
+            .paragraphe-2 .top-resp table{
+                background: #eaeaea!important;
+            }
+            .paragraphe-2 .top-resp table .margin-m{
+                width:25px!important;
+            }
+            .paragraphe-1 .bottom-resp table .texte, .paragraphe-3 .bottom-resp table .texte, .paragraphe-2 .top-resp table .texte{
+                font-size:14px!important;
+            }
+            .sur-footer table .left, .sur-footer table .right, .sur-footer table .bottom{
+                height:60px!important;
+            }
+            .sur-footer table .left{
+                width: 50%!important;
+                display: block;
+                float: left;
+            }
+            .sur-footer table .right{
+                width: 50%!important;
+                display: block;
+                float: right;
+            }
+            .sur-footer table .right img{
+                margin-top: 10px;
+            }
+            .sur-footer table .bottom{
+                width: 100%!important;
+                display: block;
+            }
+            .sur-footer .deb, .sur-footer .end{ height:30px!important;}
+            table.footer td{
+                font-size:14px!important;
+            }
+            table.footer .m-left, table.footer .m-right{width:20px!important;}
+
         }
     </style>
 </head>
@@ -24,11 +156,11 @@
         <tr>
             <td>
     <![endif]-->
-    <table  style="margin: 0 auto;width: 100%;max-width: 650px;" border="0" cellpadding="0" cellspacing="0">
+    <table  style="margin: 0 auto;width: 650px;" border="0" cellpadding="0" cellspacing="0" class="main">
         <tr> <!-- sur header -->
             <td width="100%">
                 <table style="margin: 0 auto;width: 100%;" border="0" cellpadding="0" cellspacing="0" class="header-offre" >
-                    <tr> <!-- sur header offre -->
+                    <tr class="deb"> <!-- sur header offre -->
                         <td height="5" width="15"></td>
                         <td height="5"></td>
                         <td height="5" width="15"></td>
@@ -55,7 +187,7 @@
                         </td>
                         <td width="15"></td>
                     </tr>
-                    <tr>
+                    <tr class="end">
                         <td height="10" width="15"></td>
                         <td height="10"></td>
                         <td height="10" width="15"></td>
@@ -66,7 +198,7 @@
         <tr> <!-- header -->
             <td>
                 <table style="width: 100%;background-color: #1363dc;" border="0" cellpadding="0" cellspacing="0" class="header" >
-                    <tr> <!-- sur header offre -->
+                    <tr>
                         <td height="15" width="20"></td>
                         <td height="15"></td>
                         <td height="15"></td>
@@ -109,15 +241,15 @@
             <td>
                 <table style="width:100%;background-color:#f5f5f5;" border="0" cellpadding="0" cellspacing="0" class="centre-visuel" >
                     <tr>
-                        <td width="300">
+                        <td width="300" class="top-resp">
                             <img src="./file/centre-v-left.png" alt="centre visuel" width="300" height="250" />
                         </td>
-                        <td width="250" valign="middle" align="right">
+                        <td width="250" valign="middle" align="right" class="bottom-resp">
                             <a href="http://pro.futuroscope.com/tarifs-individuels" target="_blank" title="Tarifs" >
                                 <img src="./file/centre-v-right.png" alt="centre visuel" width="200" height="150" />
                             </a>
                         </td>
-                        <td width="50">
+                        <td width="50" class="hide">
                         </td>
                     </tr>
                 </table>
@@ -126,22 +258,22 @@
         <tr> <!-- texte accroche -->
             <td>
                 <table style="width:100%;background-color:#fff;" border="0" cellpadding="0" cellspacing="0" class="texte-accroche" >
-                    <tr>
-                        <td height="15" width="20"></td>
+                    <tr class="deb">
+                        <td height="15" width="20" class="left"></td>
                         <td height="15"></td>
-                        <td height="15" width="40"></td>
+                        <td height="15" width="40" class="right"></td>
                     </tr>
                     <tr>
-                        <td width="30"></td>
-                        <td width="250" valign="middle" align="center" style="font-family:'Arial';font-size:11px;color:#9d9d9d;" >
+                        <td width="30" class="left"></td>
+                        <td width="250" class="middle" valign="middle" align="center" style="font-family:'Arial';font-size:11px;color:#9d9d9d;" >
                             <img src="./file/texte-accroche.png" width="450" height="30" alt="Nouveau : L'Âge de Glace, l'attraction !" />
                         </td>
-                        <td width="30"></td>
+                        <td width="40" class="right"></td>
                     </tr>
-                    <tr>
-                        <td height="15" width="20"></td>
+                    <tr class="end">
+                        <td height="15" width="20" class="left"></td>
                         <td height="15"></td>
-                        <td height="15" width="40"></td>
+                        <td height="15" width="40" class="right"></td>
                     </tr>
                 </table>
             </td>
@@ -149,15 +281,15 @@
         <tr> <!-- paragraphe 1 -->
             <td>
                 <table style="width:100%;background-color:#f5f5f5;" border="0" cellpadding="0" cellspacing="0" class="paragraphe-1">
-                    <tr>
+                    <tr class="deb">
                         <td height="10"></td>
                         <td height="10"></td>
                     <tr>
                     <tr>
-                        <td width="300" >
+                        <td width="300" class="top-resp" >
                             <img src="./file/paragraph-1.png" alt="Paragraphe 1" width="300" height="290"/>
                         </td>
-                       <td width="300" valign="top">
+                       <td width="300" valign="top" class="bottom-resp">
                            <table style="width:100%;background-color:#f5f5f5;" border="0" cellpadding="0" cellspacing="0">
                                <tr>
                                    <td width="20"></td>
@@ -176,8 +308,8 @@
                                </tr>
                                <tr>
                                    <td width="20"></td>
-                                   <td width="200" style="font-size:12px;font-family:'Arial';">
-                                       Les héros de L’Âge de Glace attendent les visiteurs dans une aventure en 4D complètement givrée !
+                                   <td width="200" style="font-size:12px;font-family:'Arial';" class="texte">
+                                       Les héros de L’<strong>Âge de Glace</strong> attendent les visiteurs dans une <strong>aventure en 4D</strong> complètement givrée !
                                        Effets dans la salle, plateforme dynamique et fous rires garantis !
                                    </td>
                                    <td width="30"></td>
@@ -199,7 +331,7 @@
                            </table>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="end">
                         <td height="20"></td>
                         <td height="20"></td>
                     <tr>
@@ -209,43 +341,43 @@
         <tr> <!-- paragraphe 2 -->
             <td>
                 <table style="width:100%;background-color:#f5f5f5;" border="0" cellpadding="0" cellspacing="0" class="paragraphe-2">
-                    <tr>
+                    <tr class="deb">
                         <td height="10"></td>
                         <td height="10"></td>
                     <tr>
                     <tr>
-                       <td width="300" valign="top">
+                       <td width="300" valign="top" class="top-resp">
                             <table style="width:100%;background-color:#f5f5f5;" border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td width="40"></td>
+                                <tr class="deb-tab">
+                                    <td width="40" class="margin-m"></td>
                                     <td height="30"></td>
                                     <td width="30"></td>
                                 </tr>
                                 <tr>
-                                    <td width="40"></td>
+                                    <td width="40" class="margin-m"></td>
                                     <td style="color:#eb1c67;font-size:22px;font-family:'Arial';" > Une aventure colossale !</td>
                                     <td width="30"></td>
                                 </tr>
                                 <tr>
-                                    <td width="40"></td>
+                                    <td width="40" class="margin-m"></td>
                                     <td height="20"></td>
                                     <td width="30"></td>
                                 </tr>
                                 <tr>
-                                    <td width="40"></td>
-                                    <td  style="font-size:12px;font-family:'Arial';">
-                                        Lorsque Sid le paresseux décide d’adopter trois bébés dinosaures, il se retrouve propulsé avec ses amis,
-                                        Manny, Ellie et Diego, dans le mystérieux monde souterrain des dinosaures.
+                                    <td width="40" class="margin-m"></td>
+                                    <td  style="font-size:12px;font-family:'Arial';" class="texte">
+                                        Lorsque <strong>Sid le paresseux</strong> décide d’adopter trois bébés dinosaures, il se retrouve propulsé avec ses amis,
+                                        <strong>Manny, Ellie</strong> et <strong>Diego</strong>, dans le mystérieux monde souterrain des dinosaures.
                                     </td>
                                     <td width="30"></td>
                                 </tr>
                                 <tr>
-                                    <td width="40"></td>
+                                    <td width="40" class="margin-m"></td>
                                     <td height="20"></td>
                                     <td width="30"></td>
                                 </tr>
                                 <tr>
-                                    <td width="40"></td>
+                                    <td width="40" class="margin-m"></td>
                                     <td>
                                         <a href="http://www.futuroscope.com/attractions-et-spectacles/grands-spectacles/l-age-de-glace-l-experience-4d" target="_blank" title="voir l'attraction" >
                                             <img src="./file/see-experience.png" alt="voir expérience" width="200" />
@@ -255,11 +387,11 @@
                                 </tr>
                             </table>
                         </td>
-                        <td width="300" align="right">
+                        <td width="300" align="right" class="bottom-resp">
                             <img src="./file/paragraph-2.png" alt="Paragraphe 2" width="300" height="250"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="end">
                         <td height="20"></td>
                         <td height="20"></td>
                     <tr>
@@ -268,16 +400,16 @@
         </tr>
         <tr> <!-- paragraphe 3 -->
             <td>
-                <table style="width:100%;background-color:#f5f5f5;" border="0" cellpadding="0" cellspacing="0" class="paragraphe-1">
-                    <tr>
+                <table style="width:100%;background-color:#f5f5f5;" border="0" cellpadding="0" cellspacing="0" class="paragraphe-3">
+                    <tr class="deb">
                         <td height="10"></td>
                         <td height="10"></td>
                     <tr>
                     <tr>
-                        <td width="300" >
+                        <td width="300" class="top-resp">
                             <img src="./file/paragraph-3.png" alt="Paragraphe 3" width="300" height="250"/>
                         </td>
-                        <td width="300" valign="top">
+                        <td width="300" valign="top" class="bottom-resp">
                             <table style="width:100%;background-color:#f5f5f5;" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td width="20"></td>
@@ -296,8 +428,8 @@
                                 </tr>
                                 <tr>
                                     <td width="20"></td>
-                                    <td width="200" style="font-size:12px;font-family:'Arial';">
-                                        Proposez à vos clients un Noël fun, festif et familial dans le seul parc offrant  les deux meilleures attractions au monde et
+                                    <td width="200" style="font-size:12px;font-family:'Arial';" class="texte">
+                                        Proposez à vos clients un Noël <strong>fun, festif et familial</strong> dans le seul parc offrant  les deux meilleures attractions au monde et
                                         dont l'accueil est salué par le TripAdvisor® Travellers' Choice 2015.
 
                                     </td>
@@ -320,7 +452,7 @@
                             </table>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="end">
                         <td height="20"></td>
                         <td height="20"></td>
                     <tr>
@@ -353,7 +485,7 @@
         <tr> <!-- sur footer -->
             <td>
                 <table style="width:100%;background-color:#1363dc;" border="0" cellpadding="0" cellspacing="0" class="sur-footer" >
-                    <tr>
+                    <tr class="deb">
                         <td height="15" width="20"></td>
                         <td height="15"></td>
                         <td height="15" width="40"></td>
@@ -363,17 +495,17 @@
                         <td>
                             <table style="width:100%;background-color:#1363dc;" border="0" cellpadding="0" cellspacing="0">
                                   <tr>
-                                      <td align="center" valign="middle">
+                                      <td align="center" valign="middle" class="left">
                                           <a href="http://pro.futuroscope.com/tarifs-individuels" target="_blank" title="reserver" >
                                               <img src="./file/reserver.png" alt="reserver" />
                                           </a>
                                       </td>
-                                      <td align="center" valign="middle">
+                                      <td align="center" valign="middle" class="right">
                                           <a href="http://pro.futuroscope.com/supports-de-com/brochures-et-plv" target="_blank" title="commander nos brochures" >
                                               <img src="./file/order.png" alt="Commander" />
                                           </a>
                                       </td>
-                                      <td align="center" valign="middle">
+                                      <td align="center" valign="middle" class="bottom">
                                           <a href="http://pro.futuroscope.com/contact" target="_blank" title="Nous contacter" >
                                               <img src="./file/contacter.png" alt="Contacter" />
                                           </a>
@@ -383,7 +515,7 @@
                         </td>
                         <td width="30"></td>
                     </tr>
-                    <tr>
+                    <tr class="end">
                         <td height="15" width="20"></td>
                         <td height="15"></td>
                         <td height="15" width="40"></td>
@@ -395,13 +527,13 @@
             <td>
                 <table style="width:100%;background-color:#00a2ff;" border="0" cellpadding="0" cellspacing="0" class="footer">
                     <tr>
-                        <td height="25" width="40"></td>
+                        <td height="25" width="40" class="m-left"></td>
                         <td height="25">
                         </td>
-                        <td height="25" width="40"></td>
+                        <td height="25" width="40" class="m-right"></td>
                     </tr>
                     <tr>
-                        <td width="40"></td>
+                        <td width="40" class="m-left"></td>
                         <td >
                              <table style="font-size:12px;font-family:'Arial';">
                                  <tr>
@@ -470,13 +602,13 @@
 
                              </table>
                         </td>
-                        <td width="40"></td>
+                        <td width="40" class="m-right"></td>
                     </tr>
                     <tr>
-                        <td height="10" width="40"></td>
+                        <td height="10" width="40" class="m-left"></td>
                         <td height="10">
                         </td>
-                        <td height="10" width="40"></td>
+                        <td height="10" width="40" class="m-right"></td>
                     </tr>
                 </table>
             </td>
