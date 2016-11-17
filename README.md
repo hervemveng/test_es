@@ -12,6 +12,7 @@
      * PHP >= 5.5.12
      * Apache >= 2.4.9
      * phpmyadmin
+     * si sous windows il faut ajouter une variable d'environnement de PHP dans les paramètres systèmes de votre PC
 
  - Installation (les suivre en ordre):
     * creer manuellement une base de donnée : ws_es_test
@@ -28,6 +29,8 @@
 #****************************************#
 
  ouvrir juste le fichier newsletter.html se trouvant dans /newsletter
+
+ Mettre des liens absolu sur les images car je les ai mis en relatif puisque je l'ai avait juste en local.
 
 
 
